@@ -8,7 +8,7 @@ Network Info
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Get the current network information.
+Get the current network information?
 {% endapi-method-description %}
 
 {% api-method-spec %}
