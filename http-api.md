@@ -1,6 +1,8 @@
 # HTTP API
 
-{% api-method method="get" host="http://arweave.net" path="/info" %}
+### Network
+
+{% api-method method="get" host="http://arweave.net:1984" path="/info" %}
 {% api-method-summary %}
 Network Info
 {% endapi-method-summary %}
@@ -11,6 +13,12 @@ Get the current network information.
 
 {% api-method-spec %}
 {% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="" type="string" required=false %}
+
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
 
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
@@ -36,23 +44,17 @@ Get the current network information.
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="" %}
+{% api-method method="get" host="http://arweave.net" path="/peers" %}
 {% api-method-summary %}
-
+Peer list
 {% endapi-method-summary %}
 
 {% api-method-description %}
-
+Get the list of peers that the node. Nodes can only respond with peers they currently know about so this will not be an exhaustive list of nodes in the network.
 {% endapi-method-description %}
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
-
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
 
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
@@ -60,11 +62,16 @@ Get the current network information.
 
 {% endapi-method-response-example-description %}
 
-```
-
+```javascript
+[
+  "127.0.0.1:1984",
+  "0.0.0.0:1984"
+]
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
+
+## Test
 
