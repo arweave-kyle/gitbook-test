@@ -2,7 +2,7 @@
 
 ### Network
 
-{% api-method method="get" host="http://arweave.net:1984" path="/info" %}
+{% api-method method="get" host="http://arweave.net:1984" path="/infooo" %}
 {% api-method-summary %}
 Network Info
 {% endapi-method-summary %}
@@ -12,13 +12,6 @@ Get the current network information.
 {% endapi-method-description %}
 
 {% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
-
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
 
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
