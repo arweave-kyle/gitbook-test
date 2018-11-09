@@ -1,6 +1,6 @@
 # Getting Started
 
-{% page-ref page="core/http-api.md" %}
+{% page-ref page="server/http-api.md" %}
 
 
 

@@ -2,7 +2,7 @@
 
 * [Getting Started](README.md)
 
-## Arweave Node
+## Arweave Server
 
-* [HTTP API](core/http-api.md)
+* [HTTP API](server/http-api.md)
 
