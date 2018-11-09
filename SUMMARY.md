@@ -1,5 +1,8 @@
 # Table of contents
 
 * [Getting Started](README.md)
-* [HTTP API](http-api.md)
+
+## Arweave Node
+
+* [HTTP API](core/http-api.md)
 
