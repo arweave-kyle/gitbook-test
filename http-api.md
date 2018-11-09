@@ -1,13 +1,95 @@
 # HTTP API
 
+## Introduction
+
+#### Postman Collection
+
+[![](.gitbook/assets/68747470733a2f2f72756e2e7073746d6e2e696f2f627574746f6e2e737667.svg) ](https://app.getpostman.com/run-collection/8af0090f2db84e979b69)
+
+#### Sample requests
+
+{% tabs %}
+{% tab title="cURL" %}
+```bash
+curl --request GET \
+  --url 'http://127.0.0.1:1984/info'
+```
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+let xhr = new XMLHttpRequest();
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("GET", "http://arweave.net:1984/info");
+
+xhr.send(data);
+```
+{% endtab %}
+
+{% tab title="NodeJS" %}
+```javascript
+var request = require("request");
+
+var options = { method: 'GET',
+  url: 'http://arweave.net:1984/info',
+};
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+
+```
+{% endtab %}
+
+{% tab title="PHP" %}
+```php
+<?php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_PORT => "1984",
+  CURLOPT_URL => "http://arweave.net:1984/info",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+```
+{% endtab %}
+{% endtabs %}
+
 ## Schema
+
+Common data structures and processes explained.
 
 ### Winston and AR
 
 Winston is the smallest unit of AR, similar to a satoshi in Bitcoin, or wei in Etherium.
 
 {% hint style="info" %}
-1 AR = 1000000000000 Winston
+1 AR = 1000000000000 Winston \(12 zeros\)
 {% endhint %}
 
 **The API will return all AR values as winston strings**, this is to allow for interoperability between environments that do not accommodate arbitrary-precision arithmetic.
@@ -116,6 +198,8 @@ let signature = await crypto.subtle.sign(
 {% endtabs %}
 
 ## Transactions
+
+Endpoints for interacting with transactions and related resources.
 
 {% api-method method="get" host="http://arweave.net:1984" path="/tx/:id" %}
 {% api-method-summary %}
@@ -427,7 +511,9 @@ Transaction verification failed.
 {% endapi-method-spec %}
 {% endapi-method %}
 
-## Network
+## Network and Node State
+
+Endpoints for getting information about the current network and node state.
 
 {% api-method method="get" host="http://arweave.net:1984" path="/info" %}
 {% api-method-summary %}
